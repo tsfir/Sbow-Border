@@ -15,9 +15,7 @@ public class FinishLine : MonoBehaviour
             se.speed = 1f;
             ps.Play();
             GetComponent<AudioSource>().Play();
-
             Invoke("reLoadScene", 8f);
-
         }
     }
 

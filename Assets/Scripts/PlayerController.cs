@@ -5,11 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    [SerializeField] float torqueAmount = 1f;
+    [SerializeField] GameObject hills;
+    SurfaceEffector2D se;
+    [SerializeField] float torqueAmount = 6f;
+    [SerializeField] float speedAmount = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        se = hills.GetComponent<SurfaceEffector2D>();
 
     }
 
@@ -22,7 +27,17 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            rb2d.AddTorque(torqueAmount*-1);
+            rb2d.AddTorque(torqueAmount * -1);
         }
+        else if (Input.GetKey(KeyCode.UpArrow))
+        {
+            se.speed += speedAmount;
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            se.speed -= speedAmount;
+        }
+        //rb2d.AddTorque(-1*Input.GetAxis("Horizontal")*torqueAmount) ; 
+        //se.speed += Input.GetAxis("Vertical") * speedAmount ;
     }
 }

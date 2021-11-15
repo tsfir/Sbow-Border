@@ -6,12 +6,17 @@ public class CrashControler : MonoBehaviour
 {
     [SerializeField] ParticleSystem ps;
     [SerializeField] GameObject hills;
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] GameObject camera1;
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         SurfaceEffector2D se = hills.GetComponent<SurfaceEffector2D>();
-        if (collision.tag == "Surface")
+        if (collision.gameObject.tag == "Surface")
         {
-            Invoke("reLoadScene",5f);
+            Invoke("reLoadScene", 5f);
+            camera1.GetComponent<AudioSource>().Stop();
+            GetComponent<AudioSource>().Play();
             se.speed = 1f;
             ps.Play();
         }
