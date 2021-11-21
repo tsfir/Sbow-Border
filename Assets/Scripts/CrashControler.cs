@@ -15,10 +15,12 @@ public class CrashControler : MonoBehaviour
         if (collision.gameObject.tag == "Surface")
         {
             Invoke("reLoadScene", 5f);
-            camera1.GetComponent<AudioSource>().Stop();
-            GetComponent<AudioSource>().Play();
-            se.speed = 1f;
             ps.Play();
+            GetComponent<AudioSource>().Play();
+
+            camera1.GetComponent<AudioSource>().Stop();
+            se.speed = 1f;
+            
         }
     }
 

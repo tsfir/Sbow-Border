@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb2d;
@@ -10,12 +11,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float torqueAmount = 6f;
     [SerializeField] float speedAmount = 0.1f;
 
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         se = hills.GetComponent<SurfaceEffector2D>();
-
     }
 
     // Update is called once per frame
