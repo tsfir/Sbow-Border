@@ -14,6 +14,7 @@ public class FinishLine : MonoBehaviour
 
     void Update()
     {
+        // Hi There
         if (ifWin == false)
         {
             scoreValue = scoreValue + Time.deltaTime;
